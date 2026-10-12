@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CariBahasa pemrograman dan Kendi & Sapta</title>
+  <meta name="description" content="Mesin pencari bahasa pemrograman ala Google, lengkap dengan cuaca, berita terbaru, data saham, dan notifikasi salah ketik." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔎</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand brand--sm" href="#" id="brandSmall" title="CariBahasa">
+      <span class="l1">Cari</span><span class="l2">Bahasa</span>
+    </a>
+
+    <form class="searchbox searchbox--top" id="formTop" autocomplete="off">
+      <span class="sb-icon">🔍</span>
+      <input type="text" id="inputTop" name="q" placeholder="Cari bahasa, cuaca, berita, saham…" aria-label="Kotak pencarian" />
+      <button type="button" class="sb-clear" id="clearTop" title="Hapus" hidden>✕</button>
+      <button type="submit" class="sb-go" title="Cari">➜</button>
+      <div class="suggest" id="suggestTop" hidden></div>
+    </form>
+
+    <div class="top-actions">
+      <button class="icon-btn" id="bellBtn" title="Notifikasi" aria-label="Notifikasi">
+        🔔<span class="badge" id="bellBadge" hidden>0</span>
+      </button>
+      <button class="icon-btn" id="themeBtn" title="Ganti tema" aria-label="Ganti tema">🌙</button>
+    </div>
+
+    <div class="notif-panel" id="notifPanel" hidden>
+      <div class="notif-head">
+        <strong>Notifikasi</strong>
+        <button class="link-btn" id="clearNotif">Bersihkan</button>
+      </div>
+      <div class="notif-list" id="notifList"></div>
+    </div>
+  </header>
+
+  <!-- ============ HOME ============ -->
+  <main>
+  <section id="home" class="home">
+    <div class="home-inner">
+      <h1 class="brand brand--xl">
+        <span class="l1">C</span><span class="l2">a</span><span class="l3">r</span><span class="l4">i</span><span class="l5">B</span><span class="l6">a</span><span class="l7">h</span><span class="l8">a</span><span class="l9">s</span><span class="l10">a</span>
+      </h1>
+
+      <form class="searchbox searchbox--home" id="formHome" autocomplete="off">
+        <span class="sb-icon">🔍</span>
+        <input type="text" id="inputHome" name="q" placeholder="Search" aria-label="Kotak pencarian" />
+        <button type="button" class="sb-clear" id="clearHome" title="Hapus" hidden>✕</button>
+        <button type="submit" class="sb-go" title="Cari">➜</button>
+        <div class="suggest" id="suggestHome" hidden></div>
+      </form>
+
+      <div class="home-buttons">
+        <button class="btn" id="btnSearchHome" type="button">Cari Bahasa</button>
+        <button class="btn btn--ghost" id="btnLucky" type="button"> Saya Lagi Beruntung</button>
+      </div>
+
+      <div class="chips" id="quickChips">
+        <button class="chip" data-q="cuaca Jakarta"> Cuaca Prabumulih</button>
+        <button class="chip" data-q="berita teknologi terbaru"> Berita teknologi</button>
+        <button class="chip" data-q="saham BBCA"> Saham BBCA</button>
+        <button class="chip" data-q="bahasa untuk AI"> Bahasa untuk AI</button>
+        <button class="chip" data-q="bahasa paling mudah dipelajari"> Bahasa termudah</button>
+      </div>
+
+      <div class="trending" id="trending">
+        <div class="trending-head">
+          <h2>Bahasa populer saat ini</h2>
+          <span class="muted">berdasarkan indeks popularitas</span>
+        </div>
+        <div class="trend-grid" id="trendGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section id="results" class="results" hidden>
+    <nav class="tabs" id="tabs">
+      <button class="tab is-active" data-tab="all"> Semua</button>
+      <button class="tab" data-tab="language"> Bahasa</button>
+      <button class="tab" data-tab="weather"> Cuaca</button>
+      <button class="tab" data-tab="news"> Berita</button>
+      <button class="tab" data-tab="stock"> Saham</button>
+    </nav>
+
+    <div id="typoBanner" class="typo-banner" hidden></div>
+
+    <div class="results-grid">
+      <div class="col-main" id="colMain"></div>
+      <aside class="col-side" id="colSide"></aside>
+    </div>
+
+    <div id="loading" class="loading" hidden>
+      <div class="spinner"></div> Sedang Mencari...
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <span>Pencarian By Sapta Dan Kendi • Data: Open-Meteo (cuaca) · Google News &amp; dev.to (berita) · Google Finance &amp; Nasdaq (saham) · Wikipedia (ensiklopedia)</span>
+  </footer>
+
+  <div class="toasts" id="toasts"></div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" id="modalCard"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
